@@ -1,0 +1,5 @@
+language: c
+compiler: gcc
+install: true
+script: make
+after_script: make clean

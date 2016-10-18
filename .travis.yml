@@ -2,4 +2,6 @@ language: c
 compiler: gcc
 install: true
 script: make all
-after_script: make clean
+after_script:
+- ./periodic_table.so
+- make clean

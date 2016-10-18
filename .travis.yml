@@ -1,5 +1,5 @@
 language: c
 compiler: gcc
 install: true
-script: make
+script: make all
 after_script: make clean

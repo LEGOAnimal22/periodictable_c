@@ -1,16 +1,15 @@
-OBJS +=  periodic_table.so electron.o main.o
+OBJS += electron.o main.o
+TARGET := periodic_table.so
 
-electron.o:
-	$(CC) -I./ -o $@ -c electron.c
+%.o: %.c
+	$(CC) -I./ -o $@ -c $^
 
-main.o:
-	$(CC) -I./ -o $@ -c main.c
+target_: $(TARGET)
 
-periodic_table.so:
-	$(CC) -Wall -o $@ $(OBJS)
+$(TARGET): $(OBJS)
+	$(CC) -Wall -I./ -o $@ $^
 
-all:
-	electron.o main.o periodic_table.so
+all: target_
 
 clean:
 	$(RM) -fr $(OBJS)

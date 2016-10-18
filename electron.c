@@ -7,10 +7,11 @@ static unsigned int sublevel_max_electrons[19] = {2, 2, 6, 2, 6, 2, 10, 6, 2, 10
 
 // create a new electron_config object using the atomic number of an element
 electron_config create_electron_config(unsigned int atomic_number) {
-  electron_config new_elec = {atomic_number, find_highest_energy_level(atomic_number), 0, 0, ""};
+  unsigned int he_lev = find_highest_energy_level(atomic_number);
+  unsigned int val_elec = find_valence_electrons(atomic_number, he_lev);
+  int chrg = find_config_charge(val_elec);
 
-  // find_valence_electrons(&new_elec);
-  // configure_electron_string(&new_elec);
+  electron_config new_elec = {atomic_number, he_lev, val_elec, chrg, ""};
 
   return new_elec;
 }
@@ -58,39 +59,42 @@ int add_to_sublevel(unsigned int level_max, unsigned int *atomic_number) {
 
 // configure valence electrons (in s and p sublevels of highest energy level)
 // and determine charge from valence electrons
-int find_valence_electrons(electron_config *elec) {
-  /* switch (elec->highest_energy_level) {
+unsigned int find_valence_electrons(unsigned int atomic_number, unsigned int highest_energy_level) {
+  unsigned int valence_electrons = 0;
+  switch (highest_energy_level) {
     case 1:
-      elec->valence_electrons = sub_1s.electrons;
+      valence_electrons = atomic_number;
     case 2:
-      elec->valence_electrons = sub_2s.electrons + sub_2p.electrons;
+      valence_electrons = (atomic_number - 2);
     case 3:
-      elec->valence_electrons = sub_3s.electrons + sub_3p.electrons;
+      valence_electrons = (atomic_number - 10);
     case 4:
-      elec->valence_electrons = sub_4s.electrons + sub_4p.electrons;
+      valence_electrons = (((atomic_number - 18) > 2) ? (2 + (((atomic_number - 30) > 0) ? (atomic_number - 30) : 0)) : (atomic_number - 18));
     case 5:
-      elec->valence_electrons = sub_5s.electrons + sub_5p.electrons;
+      valence_electrons = (((atomic_number - 36) > 2) ? (2 + (((atomic_number - 48) > 0) ? (atomic_number - 48) : 0)) : (atomic_number - 36));
     case 6:
-      elec->valence_electrons = sub_6s.electrons + sub_6p.electrons;
+      valence_electrons = (((atomic_number - 54) > 2) ? (2 + (((atomic_number - 80) > 0) ? (atomic_number - 80) : 0)) : (atomic_number - 54));
     case 7:
-      elec->valence_electrons = sub_7s.electrons + sub_7p.electrons;
-  } */
+      valence_electrons = (((atomic_number - 86) > 2) ? (2 + (((atomic_number - 112) > 0) ? (atomic_number - 112) : 0)) : (atomic_number - 86));
+  }
 
-  int diff = 8 - elec->valence_electrons;
+  return valence_electrons;
+}
+
+int find_config_charge(unsigned int valence) {
+  int diff = 8 - valence;
   if (diff == 0) {
-    elec->charge = 0;
+    return 0;
   }
   else if (diff < 4) {
-    elec->charge = (int)(-1 * diff);
+    return (int)(-1 * diff);
   }
   else if (diff == 4) {
-    elec->charge = 4;
+    return 4;
   }
   else if (diff > 4) {
-    elec->charge = elec->valence_electrons;
+    return valence;
   }
-
-  return 1;
 }
 
 // write the amount of electrons in the used sublevels as a string

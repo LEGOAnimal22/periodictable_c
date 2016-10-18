@@ -72,5 +72,5 @@ extern int add_to_sublevel(sublevel *sublvl, uint32_t *atomic_number);
 extern int reset_sublevels();
 
 extern int find_valence_electrons(electron_config *elec);
-extern char get_superscripts(unsigned int num)[3];
+extern char * get_superscripts(unsigned int num);
 extern int configure_electron_string(electron_config *elec);

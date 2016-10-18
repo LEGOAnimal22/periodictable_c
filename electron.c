@@ -215,7 +215,7 @@ int find_valence_electrons(electron_config *elec) {
 }
 
 // return a superscript for a given number (range: 1 - 14)
-char get_superscripts(unsigned int num)[3] {
+char * get_superscripts(unsigned int num) {
   char out[3] = "^";
 
   if (num < 10) {
@@ -257,7 +257,7 @@ char get_superscripts(unsigned int num)[3] {
     }
   }
 
-  return out;
+  return (char *)out;
 }
 
 // write the amount of electrons in the used sublevels as a string

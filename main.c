@@ -4,10 +4,9 @@
 
 int main() {
   printf("Periodic Table\n");
-  initialize_sublevels();
 
-  electron_config element = create_electron_config(24);
-  printf("%d\n", element.charge);
+  electron_config element = create_electron_config(27);
+  printf("%d\n", element.highest_energy_level);
 
   return 1;
 }

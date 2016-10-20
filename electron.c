@@ -69,13 +69,13 @@ unsigned int find_valence_electrons(unsigned int atomic_number, unsigned int hig
     case 3:
       valence_electrons = (atomic_number - 10);
     case 4:
-      valence_electrons = ((((int)(atomic_number) - 18) > 2) ? (2 + (((int)((int)(atomic_number) - 30) > 0) ? ((int)(atomic_number) - 30) : 0)) : ((int)(atomic_number) - 18));
+      valence_electrons = (((atomic_number - 18) > 2) ? 2 : (atomic_number - 18)) + ((atomic_number > 30) ? (atomic_number - 30) : 0);
     case 5:
-      valence_electrons = ((((int)(atomic_number) - 36) > 2) ? (2 + (((int)((int)(atomic_number) - 48) > 0) ? ((int)(atomic_number) - 48) : 0)) : ((int)(atomic_number) - 36));
+      valence_electrons = (((atomic_number - 36) > 2) ? 2 : (atomic_number - 36)) + ((atomic_number > 48) ? (atomic_number - 48) : 0);
     case 6:
-      valence_electrons = ((((int)(atomic_number) - 54) > 2) ? (2 + (((int)((int)(atomic_number) - 80) > 0) ? ((int)(atomic_number) - 80) : 0)) : ((int)(atomic_number) - 54));
+      valence_electrons = (((atomic_number - 54) > 2) ? 2 : (atomic_number - 54)) + ((atomic_number > 80) ? (atomic_number - 80) : 0);
     case 7:
-      valence_electrons = ((((int)(atomic_number) - 86) > 2) ? (2 + (((int)((int)(atomic_number) - 112) > 0) ? ((int)(atomic_number) - 112) : 0)) : ((int)(atomic_number) - 86));
+      valence_electrons = (((atomic_number - 86) > 2) ? 2 : (atomic_number - 86)) + ((atomic_number > 112) ? (atomic_number - 112) : 0);
   }
 
   return valence_electrons;

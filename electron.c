@@ -13,7 +13,7 @@ electron_config create_electron_config(unsigned int atomic_number) {
   unsigned int val_elec = find_valence_electrons(atomic_number, he_lev);
   int chrg = find_config_charge(val_elec);
 
-  electron_config new_elec = {atomic_number, he_lev, val_elec, chrg, ""};
+  electron_config new_elec = {atomic_number, he_lev, val_elec, chrg};
 
   return new_elec;
 }
@@ -62,25 +62,22 @@ int add_to_sublevel(unsigned int level_max, unsigned int *atomic_number) {
 // configure valence electrons (in s and p sublevels of highest energy level)
 // and determine charge from valence electrons
 unsigned int find_valence_electrons(unsigned int atomic_number, unsigned int highest_energy_level) {
-  unsigned int valence_electrons;
   switch (highest_energy_level) {
     case 1:
-      valence_electrons = atomic_number;
+      return atomic_number;
     case 2:
-      valence_electrons = (atomic_number - 2);
+      return (atomic_number - 2);
     case 3:
-      valence_electrons = (atomic_number - 10);
+      return (atomic_number - 10);
     case 4:
-      valence_electrons = (((atomic_number - 18) > 2) ? 2 : (atomic_number - 18)) + ((atomic_number > 30) ? (atomic_number - 30) : 0);
+      return (((atomic_number - 18) > 2) ? 2 : (atomic_number - 18)) + ((atomic_number > 30) ? (atomic_number - 30) : 0);
     case 5:
-      valence_electrons = (((atomic_number - 36) > 2) ? 2 : (atomic_number - 36)) + ((atomic_number > 48) ? (atomic_number - 48) : 0);
+      return (((atomic_number - 36) > 2) ? 2 : (atomic_number - 36)) + ((atomic_number > 48) ? (atomic_number - 48) : 0);
     case 6:
-      valence_electrons = (((atomic_number - 54) > 2) ? 2 : (atomic_number - 54)) + ((atomic_number > 80) ? (atomic_number - 80) : 0);
+      return (((atomic_number - 54) > 2) ? 2 : (atomic_number - 54)) + ((atomic_number > 80) ? (atomic_number - 80) : 0);
     case 7:
-      valence_electrons = (((atomic_number - 86) > 2) ? 2 : (atomic_number - 86)) + ((atomic_number > 112) ? (atomic_number - 112) : 0);
+      return (((atomic_number - 86) > 2) ? 2 : (atomic_number - 86)) + ((atomic_number > 112) ? (atomic_number - 112) : 0);
   }
-
-  return valence_electrons;
 }
 
 int find_config_charge(unsigned int valence) {
@@ -97,9 +94,4 @@ int find_config_charge(unsigned int valence) {
   else if (diff > 4) {
     return valence;
   }
-}
-
-// write the amount of electrons in the used sublevels as a string
-int configure_electron_string(electron_config *elec) {
-  return 1;
 }

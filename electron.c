@@ -1,3 +1,5 @@
+// Copyright (c) 2016 LEGOAnimal22
+
 #include <string.h>
 #include "electron.h"
 

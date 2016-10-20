@@ -1,3 +1,5 @@
+// Copyright (c) 2016 LEGOAnimal22
+
 #define MAX_CONFIG_LN 1000
 
 typedef struct {

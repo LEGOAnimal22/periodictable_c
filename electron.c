@@ -92,6 +92,6 @@ int find_config_charge(unsigned int valence) {
     return 4;
   }
   else if (diff > 4) {
-    return valence;
+    return (int)valence;
   }
 }

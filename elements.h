@@ -124,4 +124,18 @@ enum {
   UNUNOCTIUM
 };
 
+typedef char element_symbol[3];
+element_symbol element_symbols[10] = {
+  "H",
+  "He",
+  "Li",
+  "Be",
+  "B",
+  "C",
+  "N",
+  "O",
+  "F",
+  "Ne"
+}
+
 #endif

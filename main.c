@@ -11,5 +11,6 @@ int main() {
   electron_config carbon = create_electron_config(CARBON);
   printf("%d,\t%d,\t%d,\t%d\n", carbon.atomic_number, carbon.highest_energy_level, carbon.valence_electrons, carbon.charge);
 
+  printf("%s\n", element_symbols[CARBON - 1]);
   return 1;
 }

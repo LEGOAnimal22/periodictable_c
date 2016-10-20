@@ -1,6 +1,7 @@
 // Copyright (c) 2016 LEGOAnimal22
 
-#include "electron.h"
+#ifndef PTABLE_ELEMENT_H
+#define PTABLE_ELEMENT_H
 
 enum {
   HYDROGEN = 1,
@@ -122,3 +123,5 @@ enum {
   UNUNSEPTIUM,
   UNUNOCTIUM
 };
+
+#endif

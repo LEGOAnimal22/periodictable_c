@@ -12,7 +12,7 @@ $(TARGET): $(OBJS)
 all: target_
 
 clean:
-	$(RM) -fr $(OBJS)
+	rm -fr $(OBJS)
 
 .PHONY:
 	all clean

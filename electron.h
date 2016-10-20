@@ -3,8 +3,6 @@
 #ifndef PTABLE_ELECTRON_H
 #define PTABLE_ELECTRON_H
 
-#define MAX_CONFIG_LN 1000
-
 typedef struct {
   unsigned int atomic_number, highest_energy_level, valence_electrons;
   int charge;

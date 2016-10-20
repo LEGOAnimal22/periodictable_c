@@ -1,4 +1,4 @@
-OBJS += electron.o main.o
+OBJS += electron.o elements.o main.o
 TARGET := periodic_table.so
 
 %.o: %.c

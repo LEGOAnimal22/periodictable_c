@@ -16,7 +16,8 @@ int main() {
   electron_config radon = create_electron_config(86);
   printf("%d, %d, %d, %d\n", radon.atomic_number, radon.highest_energy_level, radon.valence_electrons, radon.charge);
 
-  printf("%d\n", find_valence_electrons(86, 6));
+  electron_config astatine = create_electron_config(85);
+  printf("%d, %d, %d, %d\n", astatine.atomic_number, astatine.highest_energy_level, astatine.valence_electrons, astatine.charge);
 
   return 1;
 }

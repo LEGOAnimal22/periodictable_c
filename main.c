@@ -17,8 +17,10 @@ int main() {
   printf("%d, %d, %d, %d\n", radon.atomic_number, radon.highest_energy_level, radon.valence_electrons, radon.charge);
 
   // (((atomic_number - 54) > 2) ? 2 : (atomic_number - 54)) + ((atomic_number > 80) ? (atomic_number - 80) : 0)
-  printf("%d\n", (((86 - 54) > 2) ? 2 : (86 - 54)));
-  printf("%d\n", ((86 > 80) ? (86 - 80) : 0));
+  unsigned int x = 86;
+  printf("%d\n", (((x - 54) > 2) ? 2 : (x - 54)));
+  printf("%d\n", ((x > 80) ? (x - 80) : 0));
+  printf("%d\n", (((x - 54) > 2) ? 2 : (x - 54)) + ((x > 80) ? (x - 80) : 0));
 
   return 1;
 }

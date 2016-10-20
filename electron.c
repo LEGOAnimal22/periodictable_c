@@ -62,7 +62,7 @@ int add_to_sublevel(unsigned int level_max, unsigned int *atomic_number) {
 // configure valence electrons (in s and p sublevels of highest energy level)
 // and determine charge from valence electrons
 unsigned int find_valence_electrons(unsigned int atomic_number, unsigned int highest_energy_level) {
-  unsigned int valence_electrons = 0;
+  unsigned int valence_electrons;
   switch (highest_energy_level) {
     case 1:
       valence_electrons = atomic_number;

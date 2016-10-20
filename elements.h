@@ -136,6 +136,6 @@ element_symbol element_symbols[10] = {
   "O",
   "F",
   "Ne"
-}
+};
 
 #endif

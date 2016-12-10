@@ -140,7 +140,7 @@ int search_element_symbols(element_symbol search_for) {
   int i;
   for (i = 0; i < 118; i++) {
     if (strcmp(element_symbols[i], search_for) == 0) {
-      return i;
+      return i + 1;
     }
   }
   return -1;
@@ -282,7 +282,7 @@ int search_element_names(element_name search_for) {
   int i;
   for (i = 0; i < 118; i++) {
     if (strcmp(element_names[i], search_for) == 0) {
-      return i;
+      return i + 1;
     }
   }
   return -1;

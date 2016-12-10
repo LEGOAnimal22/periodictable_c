@@ -147,6 +147,8 @@ typedef struct {
   electron_config configuration;
 } element;
 
+extern int search_element_symbols(element_symbol search_for);
+extern int search_element_names(element_name search_for);
 extern element create_element(unsigned int atomic_number);
 
 #endif

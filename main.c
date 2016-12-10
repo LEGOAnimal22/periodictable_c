@@ -15,27 +15,54 @@ void printHelp() {
 
 int main(int argc, char *argv[]) {
   printf("Periodic Table by LEGOAnimal22\n");
-  
+
   if (argc == 1) {
 	  printHelp();
 	  return 0;
   } else if (argc == 3) {
 	  if (strcmp(argv[1], "-a") == 0) {
-		  printf("number\n");
+
+		  int atm_num = atoi(argv[2]);
+			element e_atmnum = create_element(atm_num);
+			printf("%s (%s): #%d; config: %d (highest energy level), %d valence electrons, charge of %d\n", e_atmnum.name, e_atmnum.symbol, e_atmnum.atomic_number, e_atmnum.configuration.highest_energy_level, e_atmnum.configuration.valence_electrons, e_atmnum.configuration.charge);
+			return 1;
+
 	  } else if (strcmp(argv[1], "-n") == 0) {
-		  printf("name\n");
+
+		  int atm_num = search_element_names(argv[2]);
+			if (atm_num != -1) {
+				element e_atmnum = create_element(atm_num);
+				printf("%s (%s): #%d; config: %d (highest energy level), %d valence electrons, charge of %d\n", e_atmnum.name, e_atmnum.symbol, e_atmnum.atomic_number, e_atmnum.configuration.highest_energy_level, e_atmnum.configuration.valence_electrons, e_atmnum.configuration.charge);
+				return 1;
+			} else {
+				printf("Invalid element name!\n");
+				printHelp();
+				return 0;
+			}
+
 	  } else if (strcmp(argv[1], "-s") == 0) {
-		  printf("symbol\n");
+
+		  int atm_num = search_element_symbols(argv[2]);
+			if (atm_num != -1) {
+				element e_atmnum = create_element(atm_num);
+				printf("%s (%s): #%d; config: %d (highest energy level), %d valence electrons, charge of %d\n", e_atmnum.name, e_atmnum.symbol, e_atmnum.atomic_number, e_atmnum.configuration.highest_energy_level, e_atmnum.configuration.valence_electrons, e_atmnum.configuration.charge);
+				return 1;
+			} else {
+				printf("Invalid element symbol!\n");
+				printHelp();
+				return 0;
+			}
+
 	  } else {
 		  printHelp();
 		  return 0;
 	  }
   } else {
-	  printf("Incorrect number of arguments!");
+	  printf("Incorrect number of arguments!\n");
 	  printHelp();
 	  return 0;
   }
-  
+
   /*
 
   electron_config carbon = create_electron_config(CARBON);
@@ -43,8 +70,8 @@ int main(int argc, char *argv[]) {
 
   element e_tungsten = create_element(TUNGSTEN);
   printf("%s (%s): #%d; config: %d (highest energy level), %d valence electrons, charge of %d\n", e_tungsten.name, e_tungsten.symbol, e_tungsten.atomic_number, e_tungsten.configuration.highest_energy_level, e_tungsten.configuration.valence_electrons, e_tungsten.configuration.charge);
-   
+
   */
-  
+
   return 1;
 }

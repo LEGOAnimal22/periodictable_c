@@ -4,4 +4,7 @@ install: true
 script: make all
 after_script:
 - ./periodic_table.so
+- ./periodic_table.so -a 6
+- ./periodic_table.so -n carbon
+- ./periodic_table.so -s C
 - make clean

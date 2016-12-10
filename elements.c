@@ -136,6 +136,16 @@ element_symbol element_symbols[118] = {
   "Uuo"
 };
 
+int search_element_symbols(element_symbol search_for) {
+  int i;
+  for (i = 0; i < 118; i++) {
+    if (strcmp(element_symbols[i], search_for) == 0) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 element_name element_names[118] = {
   "hydrogen",
   "helium",
@@ -267,6 +277,16 @@ element_name element_names[118] = {
   "ununseptium",
   "ununoctium"
 };
+
+int search_element_names(element_name search_for) {
+  int i;
+  for (i = 0; i < 118; i++) {
+    if (strcmp(element_names[i], search_for) == 0) {
+      return i;
+    }
+  }
+  return -1;
+}
 
 element create_element(unsigned int atomic_number) {
   electron_config e_cnfg = create_electron_config(atomic_number);

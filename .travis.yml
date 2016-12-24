@@ -1,5 +1,7 @@
 language: c
-compiler: gcc
+compiler:
+- gcc
+- clang
 install: true
 script: make all
 after_script:

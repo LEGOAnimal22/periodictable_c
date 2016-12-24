@@ -20,7 +20,7 @@ electron_config create_electron_config(unsigned int atomic_number) {
 
 // fill sublevels until atomic_number reaches 0, then find highest energy level
 unsigned int find_highest_energy_level(unsigned int atomic_number) {
-  unsigned int current_sublevel = 0, x = atomic_number;
+  unsigned int current_sublevel = 0, x = atomic_number, ret = 0;
 
   while (!(x == 0)) {
     add_to_sublevel(sublevel_max_electrons[current_sublevel++], &x);
@@ -30,20 +30,21 @@ unsigned int find_highest_energy_level(unsigned int atomic_number) {
 
   switch (current_sublevel) {
     case 0:
-      return 1;
+      ret = 1;
     case 1 ... 2:
-      return 2;
+      ret = 2;
     case 3 ... 4:
-      return 3;
+      ret = 3;
     case 5 ... 7:
-      return 4;
+      ret = 4;
     case 8 ... 10:
-      return 5;
+      ret = 5;
     case 11 ... 14:
-      return 6;
+      ret = 6;
     case 15 ... 18:
-      return 7;
+      ret = 7;
   }
+  return ret;
 }
 
 // add electrons to a given sublevel
@@ -62,36 +63,39 @@ int add_to_sublevel(unsigned int level_max, unsigned int *atomic_number) {
 // configure valence electrons (in s and p sublevels of highest energy level)
 // and determine charge from valence electrons
 unsigned int find_valence_electrons(unsigned int atomic_number, unsigned int highest_energy_level) {
+  unsigned int ret = 0;
   switch (highest_energy_level) {
     case 1:
-      return atomic_number;
+      ret = atomic_number;
     case 2:
-      return (atomic_number - 2);
+      ret = (atomic_number - 2);
     case 3:
-      return (atomic_number - 10);
+      ret = (atomic_number - 10);
     case 4:
-      return (((atomic_number - 18) > 2) ? 2 : (atomic_number - 18)) + ((atomic_number > 30) ? (atomic_number - 30) : 0);
+      ret = (((atomic_number - 18) > 2) ? 2 : (atomic_number - 18)) + ((atomic_number > 30) ? (atomic_number - 30) : 0);
     case 5:
-      return (((atomic_number - 36) > 2) ? 2 : (atomic_number - 36)) + ((atomic_number > 48) ? (atomic_number - 48) : 0);
+      ret = (((atomic_number - 36) > 2) ? 2 : (atomic_number - 36)) + ((atomic_number > 48) ? (atomic_number - 48) : 0);
     case 6:
-      return (((atomic_number - 54) > 2) ? 2 : (atomic_number - 54)) + ((atomic_number > 80) ? (atomic_number - 80) : 0);
+      ret = (((atomic_number - 54) > 2) ? 2 : (atomic_number - 54)) + ((atomic_number > 80) ? (atomic_number - 80) : 0);
     case 7:
-      return (((atomic_number - 86) > 2) ? 2 : (atomic_number - 86)) + ((atomic_number > 112) ? (atomic_number - 112) : 0);
+      ret = (((atomic_number - 86) > 2) ? 2 : (atomic_number - 86)) + ((atomic_number > 112) ? (atomic_number - 112) : 0);
   }
+  return ret;
 }
 
 int find_config_charge(unsigned int valence) {
-  int diff = 8 - valence;
+  int diff = 8 - valence, ret = 0;
   if (diff == 0) {
-    return 0;
+    ret = 0;
   }
   else if (diff < 4) {
-    return (int)(-1 * diff);
+    ret = (int)(-1 * diff);
   }
   else if (diff == 4) {
-    return 4;
+    ret = 4;
   }
   else if (diff > 4) {
-    return (int)valence;
+    ret = (int)valence;
   }
+  return ret;
 }

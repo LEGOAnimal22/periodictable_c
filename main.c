@@ -1,6 +1,7 @@
 // Copyright (c) 2016 LEGOAnimal22
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <inttypes.h>
 #include <string.h>
 #include "electron.h"

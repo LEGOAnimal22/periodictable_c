@@ -4,8 +4,9 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include <string.h>
-#include "electron.h"
-#include "elements.h"
+
+#include <electron.h>
+#include <elements.h>
 
 void printHelp() {
 	printf("Acceptable uses:\n");

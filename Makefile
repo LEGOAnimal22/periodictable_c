@@ -1,13 +1,18 @@
-OBJS += electron.o elements.o main.o
+# Makefile for Periodic Table(C)
+
+# directory
+SOURCE_DIR = ./source
+
+OBJS += $(SOURCE_DIR)/electron.o $(SOURCE_DIR)/elements.o $(SOURCE_DIR)/main.o
 TARGET := periodic_table.so
 
 %.o: %.c
-	$(CC) -I./ -o $@ -c $^
+	$(CC) -I./include -o $@ -c $^
 
 target_: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) -Wall -I./ -o $@ $^
+	$(CC) -Wall -I./include -o $@ $^
 
 all: target_
 

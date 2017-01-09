@@ -3,7 +3,7 @@
 #ifndef PTABLE_ELEMENTS_H
 #define PTABLE_ELEMENTS_H
 
-#include "electron.h"
+#include <electron.h>
 
 enum {
   HYDROGEN = 1,

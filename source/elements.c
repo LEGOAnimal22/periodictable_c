@@ -1,8 +1,9 @@
 // Copyright (c) 2016 LEGOAnimal22
 
 #include <string.h>
-#include "electron.h"
-#include "elements.h"
+
+#include <electron.h>
+#include <elements.h>
 
 element_symbol element_symbols[118] = {
   "H",

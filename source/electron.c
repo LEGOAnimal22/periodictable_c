@@ -32,18 +32,25 @@ unsigned int find_highest_energy_level(unsigned int atomic_number) {
   switch (current_sublevel) {
     case 0:
       ret = 1;
+      break;
     case 1 ... 2:
       ret = 2;
+      break;
     case 3 ... 4:
       ret = 3;
+      break;
     case 5 ... 7:
       ret = 4;
+      break;
     case 8 ... 10:
       ret = 5;
+      break;
     case 11 ... 14:
       ret = 6;
+      break;
     case 15 ... 18:
       ret = 7;
+      break;
   }
   return ret;
 }

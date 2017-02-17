@@ -75,18 +75,25 @@ unsigned int find_valence_electrons(unsigned int atomic_number, unsigned int hig
   switch (highest_energy_level) {
     case 1:
       ret = atomic_number;
+      break;
     case 2:
       ret = (atomic_number - 2);
+      break;
     case 3:
       ret = (atomic_number - 10);
+      break;
     case 4:
       ret = (((atomic_number - 18) > 2) ? 2 : (atomic_number - 18)) + ((atomic_number > 30) ? (atomic_number - 30) : 0);
+      break;
     case 5:
       ret = (((atomic_number - 36) > 2) ? 2 : (atomic_number - 36)) + ((atomic_number > 48) ? (atomic_number - 48) : 0);
+      break;
     case 6:
       ret = (((atomic_number - 54) > 2) ? 2 : (atomic_number - 54)) + ((atomic_number > 80) ? (atomic_number - 80) : 0);
+      break;
     case 7:
       ret = (((atomic_number - 86) > 2) ? 2 : (atomic_number - 86)) + ((atomic_number > 112) ? (atomic_number - 112) : 0);
+      break;
   }
   return ret;
 }

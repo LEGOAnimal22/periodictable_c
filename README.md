@@ -1,6 +1,7 @@
 # periodictable_c
 
 [![Build Status](https://travis-ci.org/LEGOAnimal22/periodictable_c.svg?branch=master)](https://travis-ci.org/LEGOAnimal22/periodictable_c)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a740626f46fd410bbb710fc485ee50c8)](https://www.codacy.com/app/LEGOAnimal22/periodictable_c?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LEGOAnimal22/periodictable_c&amp;utm_campaign=Badge_Grade)
 
 Translation of one of my old VB projects
 

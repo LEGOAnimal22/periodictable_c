@@ -61,7 +61,7 @@ int add_to_sublevel(unsigned int level_max, unsigned int *atomic_number) {
   unsigned int i, atm = *atomic_number;
 
   if (atm >= level_max) { atm -= level_max; }
-  else if (atm < level_max) { atm = 0; }
+  else { atm = 0; } // or "if (atm < level_max)"
 
   *atomic_number = atm;
 

@@ -15,6 +15,6 @@ To build this project, use `make all` in the project's directory.
 
 There are three ways to use this project:
 
-+ 1. `-a [atomic number`: Uses the atomic number to display information about the element.
++ 1. `-a [atomic number]`: Uses the atomic number to display information about the element.
 + 2. `-n [name]`: Uses the element's name to display information about that element. NOTE: The name must be in all lower-case letters. Ex. "chromium"
 + 3. `-s [symbol]`: Uses the element's symbol to display information about that element. NOTE: The first letter  of the symbol must be capitalized, and the rest lower-case. Ex. "Cr"
